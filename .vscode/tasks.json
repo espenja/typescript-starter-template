@@ -2,7 +2,7 @@
 	"version": "2.0.0",
 	"tasks": [
 		{
-			"label": "Typecheck Backend",
+			"label": "Backend Typecheck Watch",
 			"command": "pnpm",
 			"args": ["typecheck"],
 			"isBackground": true,
@@ -17,7 +17,7 @@
 			"problemMatcher": ["$tsc-watch"]
 		},
 		{
-			"label": "Typecheck Frontend",
+			"label": "Frontend Typecheck Watch",
 			"command": "pnpm",
 			"args": ["typecheck"],
 			"isBackground": true,
