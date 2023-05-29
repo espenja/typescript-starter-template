@@ -2,72 +2,93 @@
 	"version": "0.2.0",
 	"configurations": [
 		{
-			"name": "Launch Backend",
+			"name": "Backend Debug",
 			"type": "node",
 			"request": "launch",
 			"runtimeExecutable": "pnpm",
 			"runtimeArgs": ["dev"],
 			"outputCapture": "std",
 			"console": "internalConsole",
-			"cwd": "${workspaceFolder}/packages/apps/backend"
+			"killBehavior": "forceful",
+			"cwd": "${workspaceFolder}/packages/apps/backend",
+			"presentation": {
+				"hidden": false,
+				"group": "2Backend",
+				"order": 1
+			}
 		},
 		{
-			"name": "Typecheck Backend",
+			"name": "Backend Typecheck Watch",
 			"type": "node",
 			"request": "launch",
-			"preLaunchTask": "Typecheck Backend"
+			"preLaunchTask": "Backend Typecheck Watch",
+			"presentation": {
+				"hidden": false,
+				"group": "2Backend",
+				"order": 2
+			}
 		},
 		{
-			"name": "Launch Frontend",
+			"name": "Frontend Debug",
 			"type": "node",
 			"request": "launch",
 			"runtimeExecutable": "pnpm",
 			"runtimeArgs": ["dev"],
 			"outputCapture": "std",
 			"console": "internalConsole",
-			"cwd": "${workspaceFolder}/packages/apps/frontend"
+			"cwd": "${workspaceFolder}/packages/apps/frontend",
+			"presentation": {
+				"hidden": false,
+				"group": "3Frontend",
+				"order": 1
+			}
 		},
 		{
-			"name": "Typecheck Frontend",
+			"name": "Frontend Typecheck Watch",
 			"type": "node",
 			"request": "launch",
-			"preLaunchTask": "Typecheck Frontend"
+			"preLaunchTask": "Frontend Typecheck Watch",
+			"presentation": {
+				"hidden": false,
+				"group": "3Frontend",
+				"order": 2
+			}
 		}
 	],
 	"compounds": [
 		{
-			"name": "Dev Backend",
-			"configurations": ["Launch Backend", "Typecheck Backend"],
-			"stopAll": true,
-			"presentation": {
-				"hidden": false,
-				"group": "Compound Tasks",
-				"order": 1
-			}
-		},
-		{
-			"name": "Dev Frontend",
-			"configurations": ["Launch Backend", "Typecheck Backend"],
-			"stopAll": true,
-			"presentation": {
-				"hidden": false,
-				"group": "Compound Tasks",
-				"order": 1
-			}
-		},
-		{
-			"name": "Dev",
+			"name": "All",
 			"configurations": [
-				"Launch Backend",
-				"Typecheck Backend",
-				"Launch Frontend",
-				"Typecheck Frontend"
+				"Backend Debug",
+				"Backend Typecheck Watch",
+				"Frontend Debug",
+				"Frontend Typecheck Watch"
 			],
 			"stopAll": true,
 			"presentation": {
 				"hidden": false,
-				"group": "Compound Tasks",
+				"group": "1Compound Tasks",
 				"order": 1
+			}
+		},
+		{
+			"name": "Backend",
+			"configurations": ["Backend Debug", "Backend Typecheck Watch"],
+			"stopAll": true,
+			"presentation": {
+				"hidden": false,
+				"group": "1Compound Tasks",
+				"order": 2
+			}
+		},
+		{
+			"name": "Frontend",
+			"configurations": ["Frontend Debug", "Frontend Typecheck Watch"],
+			"stopAll": true,
+			"presentation": {
+				"hidden": false,
+				"group": "1Compound Tasks",
+				"order": 3
 			}
 		}
 	]
