@@ -1,0 +1,13 @@
+{
+	"name": "@espenja/utilities",
+	"version": "1.0.0",
+	"author": "Espen Jacobsson (espenjacobsson@gmail.com)",
+	"description": "Various utilities",
+	"private": true,
+	"scripts": {
+		"lint": "pnpm eslint --fix ."
+	},
+	"dependencies": {
+		"dotenv": "^16.0.3"
+	}
+}

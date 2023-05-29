@@ -1,0 +1,5 @@
+packages:
+  # executable/launchable applications
+  - 'packages/apps/*'
+  - 'packages/libs/*'
+  - 'packages/tools/*'

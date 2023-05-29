@@ -1,0 +1,74 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "Launch Backend",
+			"type": "node",
+			"request": "launch",
+			"runtimeExecutable": "pnpm",
+			"runtimeArgs": ["dev"],
+			"outputCapture": "std",
+			"console": "internalConsole",
+			"cwd": "${workspaceFolder}/packages/apps/backend"
+		},
+		{
+			"name": "Typecheck Backend",
+			"type": "node",
+			"request": "launch",
+			"preLaunchTask": "Typecheck Backend"
+		},
+		{
+			"name": "Launch Frontend",
+			"type": "node",
+			"request": "launch",
+			"runtimeExecutable": "pnpm",
+			"runtimeArgs": ["dev"],
+			"outputCapture": "std",
+			"console": "internalConsole",
+			"cwd": "${workspaceFolder}/packages/apps/frontend"
+		},
+		{
+			"name": "Typecheck Frontend",
+			"type": "node",
+			"request": "launch",
+			"preLaunchTask": "Typecheck Frontend"
+		}
+	],
+	"compounds": [
+		{
+			"name": "Dev Backend",
+			"configurations": ["Launch Backend", "Typecheck Backend"],
+			"stopAll": true,
+			"presentation": {
+				"hidden": false,
+				"group": "Compound Tasks",
+				"order": 1
+			}
+		},
+		{
+			"name": "Dev Frontend",
+			"configurations": ["Launch Backend", "Typecheck Backend"],
+			"stopAll": true,
+			"presentation": {
+				"hidden": false,
+				"group": "Compound Tasks",
+				"order": 1
+			}
+		},
+		{
+			"name": "Dev",
+			"configurations": [
+				"Launch Backend",
+				"Typecheck Backend",
+				"Launch Frontend",
+				"Typecheck Frontend"
+			],
+			"stopAll": true,
+			"presentation": {
+				"hidden": false,
+				"group": "Compound Tasks",
+				"order": 1
+			}
+		}
+	]
+}

@@ -1,0 +1,35 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Typecheck Backend",
+			"command": "pnpm",
+			"args": ["typecheck"],
+			"isBackground": true,
+			"type": "shell",
+			"options": {
+				"cwd": "${workspaceFolder}/packages/apps/backend"
+			},
+			"presentation": {
+				"reveal": "always",
+				"showReuseMessage": true
+			},
+			"problemMatcher": ["$tsc-watch"]
+		},
+		{
+			"label": "Typecheck Frontend",
+			"command": "pnpm",
+			"args": ["typecheck"],
+			"isBackground": true,
+			"type": "shell",
+			"options": {
+				"cwd": "${workspaceFolder}/packages/apps/frontend"
+			},
+			"presentation": {
+				"reveal": "always",
+				"showReuseMessage": true
+			},
+			"problemMatcher": ["$tsc-watch"]
+		}
+	]
+}

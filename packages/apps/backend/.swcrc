@@ -1,0 +1,20 @@
+{
+	"$schema": "https://json.schemastore.org/swcrc",
+	"jsc": {
+		"baseUrl": "src",
+		"parser": {
+			"syntax": "typescript",
+			"tsx": false,
+			"dynamicImport": true,
+			"decorators": true
+		},
+		"preserveAllComments": false,
+		"keepClassNames": false,
+		"loose": true,
+		"target": "esnext"
+	},
+	"module": {
+		"type": "es6"
+	},
+	"sourceMaps": "inline"
+}
