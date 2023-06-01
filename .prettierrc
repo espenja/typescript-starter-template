@@ -5,7 +5,7 @@
 	"useTabs": true,
 	"jsxSingleQuote": false,
 	"trailingComma": "none",
-	"printWidth": 100,
+	"printWidth": 130,
 	"arrowParens": "always",
 	"endOfLine": "auto",
 	"overrides": [
