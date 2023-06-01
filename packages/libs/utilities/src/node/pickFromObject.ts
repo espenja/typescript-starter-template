@@ -34,12 +34,7 @@ const defaultErrorHandler: CustomErrorHandler = (missingRequired) => {
 	throw new Error(`Missing required variables ${missingRequired.join(", ")}`)
 }
 
-const defaultValidator: CustomValidator<unknown> = (
-	values,
-	missingKeys,
-	keysMarkedRequired,
-	errorHandler
-) => {
+const defaultValidator: CustomValidator<unknown> = (values, missingKeys, keysMarkedRequired, errorHandler) => {
 	const missingRequired = missingKeys.filter((d) => keysMarkedRequired.includes(d))
 
 	if (missingRequired.length) {
@@ -55,10 +50,8 @@ export const defaultFormatters = makeDefaultFormatters({
 	toBoolean: (value: string) => value.toLowerCase() === "true"
 })
 
-export const getEnv = <Q>(
-	val: (req: RequiredHandler, optional: OptionalHandler) => Q,
-	options?: PickFromObjectOptions<Q>
-) => pickFromObject(process.env, val, options)
+export const getEnv = <Q>(val: (req: RequiredHandler, optional: OptionalHandler) => Q, options?: PickFromObjectOptions<Q>) =>
+	pickFromObject(process.env, val, options)
 
 export const pickFromObject = <Q>(
 	obj: Record<string, any>,
@@ -71,11 +64,7 @@ export const pickFromObject = <Q>(
 	const keysMarkedRequired: Array<string> = []
 	const missingKeys: Array<string> = []
 
-	const findKey = <T, R>(
-		key: string | Array<string>,
-		required: boolean,
-		formatter?: Formatter<T, R>
-	): T | R => {
+	const findKey = <T, R>(key: string | Array<string>, required: boolean, formatter?: Formatter<T, R>): T | R => {
 		const keyArray = Array.isArray(key) ? key : [key]
 		const foundKey = keyArray.find((d) => obj[d])
 
@@ -92,18 +81,11 @@ export const pickFromObject = <Q>(
 		return formatter ? (formatter(value) as R) : (value as T)
 	}
 
-	const required: RequiredHandler = <T, R>(
-		key: string | Array<string>,
-		formatter?: Formatter<T, R>
-	) => {
+	const required: RequiredHandler = <T, R>(key: string | Array<string>, formatter?: Formatter<T, R>) => {
 		return findKey(key, true, formatter)
 	}
 
-	function optional<T, R>(
-		key: string | Array<string>,
-		defaultValue?: R,
-		formatter?: Formatter<T, R>
-	) {
+	function optional<T, R>(key: string | Array<string>, defaultValue?: R, formatter?: Formatter<T, R>) {
 		const value = findKey(key, false, formatter)
 
 		if (value || arguments.length === 1) {
