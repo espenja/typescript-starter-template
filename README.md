@@ -13,7 +13,7 @@ A simple backend is setup in the `packages\apps\backend` directory.
 The `build` script typechecks the project with `tsc` and bundles the project with `tsup`  
 The `dev` script runs the server with `nodemon`, providing reloads when files are changed.
 
-### Debugging
+### Debugging the backend
 
 The `.vscode` folder contains a `launch.json` and `tasks.json`, providing debug launch options for `VS Code` using `ts-node` with `swc` as the transpiler, making it a lot faster than using the default `ts-node` with `tsc` option. Since `swc` does not do typechecking, a typechecking task using `tsc` is setup to run continuously in an additional terminal, providing quick feedback for type errors.
 
