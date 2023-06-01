@@ -13,6 +13,11 @@ A simple backend is setup in the `packages\apps\backend` directory.
 The `build` script typechecks the project with `tsc` and bundles the project with `tsup`  
 The `dev` script runs the server with `nodemon`, providing reloads when files are changed.
 
+## Frontend
+
+A simple frontend is setup in the `packages\apps\frontend` directory, using `vite` and `react`.  
+The `build` script typechecks the project with `tsc` and bundles the project using `vite`
+
 - Starter project for backend with `express` and `nodemon` for reloading, build using `tsup`, debugging with `ts-node` and `swc`.
 - Starter project for frontend with `react` and `vite`.
 - Build, debug and typechecking tasks setup for VSCode.
