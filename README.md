@@ -42,6 +42,6 @@ When a file is saved, it will be auto formatted and lint fixed using
 
 ```json
 "editor.codeActionsOnSave": {
-	"source.fixAll.eslint": true
+  "source.fixAll.eslint": true
 }
 ```
