@@ -22,7 +22,9 @@ The `.vscode` folder contains a `launch.json` and `tasks.json`, providing debug 
 A simple frontend is setup in the `packages\apps\frontend` directory, using `vite` and `react`.  
 The `build` script typechecks the project with `tsc` and bundles the project using `vite`
 
-- Starter project for backend with `express` and `nodemon` for reloading, build using `tsup`, debugging with `ts-node` and `swc`.
-- Starter project for frontend with `react` and `vite`.
-- Build, debug and typechecking tasks setup for VSCode.
-- Linting setup with `eslint`, linting tasks for all projects.
+## Linting
+
+Linting with `eslint` is setup and working with the pnpm workspace.  
+All projects contain their own `lint` script, making it easy to lint everything at the same time running `pnpm lint` in the root directory.  
+Rules for sorting and resolving imports is setup with `import/resolver` rules.  
+`prettier` is used as the default formatter, setup to respect the `eslint` rules in `.eslintrc`
