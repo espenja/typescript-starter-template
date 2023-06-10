@@ -3,8 +3,13 @@
 	"compilerOptions": {
 		"baseUrl": ".",
 		"rootDir": "src",
-		"tsBuildInfoFile": ".tsbuildinfo"
+		"tsBuildInfoFile": ".tsbuildinfo",
+		"plugins": [
+			{
+				"name": "typescript-plugin-css-modules"
+			}
+		]
 	},
-	"include": ["src"],
+	"include": ["src", "./typings.d.ts"],
 	"exclude": ["node_modules"]
 }
